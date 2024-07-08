@@ -14,9 +14,10 @@ Pré-requisitos
 
 Compilando a aplicação
 ----------------------
-
+Compilando o programa em Java
 ```bash
 $ javac Programa.java
-
+```
+---------------------
 Tecnologias utilizadas
 ====================
