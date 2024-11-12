@@ -1,0 +1,30 @@
+<!-- <head>
+    <meta charset="ISO-8859-1">
+    <title>Add Bootstrap to Thymeleaf</title>
+    <link rel="stylesheet"
+     href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+     crossorigin="anonymous">
+</head>-->
+
+<form action="#" th:action="@{/addproduto}" th:object="${produto}" method="post">
+    <label for="nome">Nome</label>
+    <input type="text" th:field="*{nome}" id="nome" placeholder="Nome">
+    <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+    
+    <label for="preco">Preço</label>
+    <input type="text" th:field="*{preco}" id="preco" placeholder="Preço">
+    <span th:if="${#fields.hasErrors('preco')}" th:errors="*{preco}"></span>
+
+    <label for="dataCadastro">Data Cadastro</label>
+    <input type="text" th:field="*{dataCadastro}" id="dataCadastro" placeholder="Data Cadastro">
+    <span th:if="${#fields.hasErrors('dataCadastro')}" th:errors="*{dataCadastro}"></span>
+
+    <label for="categoria">Categoria</label>
+    <select class="form-control" th:field="*{categoria}" id="categoria">
+        <option value="0">Escolha uma opção</option>
+        <option th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.nome}"></option>
+    </select>
+
+    <input type="submit" value="Cadastrar">
+</form>

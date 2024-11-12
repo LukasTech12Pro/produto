@@ -1,0 +1,38 @@
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Add Bootstrap to Thymeleaf</title>
+    <link rel="stylesheet"
+     href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+     crossorigin="anonymous">
+</head>
+
+<div th:insert="~{layout/header}"></div>
+
+<div th:switch="${produtos}">
+    <h2 th:case="null">Nenhum produto cadastrado!</h2>
+        <div th:case="*">
+            <h2>Produtos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Preço</th>
+                        <th>Data Cadastro</th>
+                        <th>Categoria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr th:each="produto : ${produtos}">
+                    <td th:text="${produto.nome}"></td>
+                    <td th:text="${produto.preco}"></td>
+                    <td th:text="${produto.dataCadastro}"></td>
+                    <td th:text="${produto.categoria?.nome}"></td>                    
+                </tr>
+            </tbody>
+        </table>
+    </div>   
+    <p><a href="/cadproduto">Adicionar Produto</a></p>       
+</div>
+
+<div th:insert="~{layout/footer}"></div>
